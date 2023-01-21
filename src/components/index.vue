@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import { database } from "../../firebase/config";
+import { database } from "../firebase/config";
 import { collection, onSnapshot } from "firebase/firestore";
 
 export default {

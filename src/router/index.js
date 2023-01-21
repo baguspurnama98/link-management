@@ -1,8 +1,9 @@
 import { createRouter, createWebHistory } from "vue-router";
 import LoginView from "../components/login/Login.vue";
 import RegisterView from "../components/login/Register.vue";
-import HomeView from "../components/home/Main.vue";
-import DashboardView from "../components/home/Dashboard.vue";
+import LandingView from "../components/index.vue";
+import ContentView from "../components/content/index.vue";
+import Redirect from "../components/redirect/index.vue";
 // https://blog.logrocket.com/authentication-vue-3-firebase/
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
@@ -10,7 +11,7 @@ const routes = [
   {
     path: "/",
     name: "home",
-    component: HomeView,
+    component: LandingView,
   },
   {
     path: "/login",
@@ -24,11 +25,16 @@ const routes = [
   },
   {
     path: "/dashboard",
-    name: "dashboard",
-    component: DashboardView,
+    component: ContentView,
     meta: {
       authRequired: false,
     },
+  },
+  {
+    path: "/:catchAll(.*)",
+    name: "redirect",
+
+    component: Redirect,
   },
 ];
 
